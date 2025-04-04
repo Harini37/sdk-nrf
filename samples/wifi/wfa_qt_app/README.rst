@@ -181,9 +181,12 @@ See `QuickTrack Test Tool Platform Integration Guide`_ for the installation proc
 See `Platform Intel Ax210 Integration Guide`_ for more details.
 
 QuickTrack Configuration settings
----------------------------------
+=================================
 
 Settings
+--------
+
+The diagram below provides an overview of the test setup configuration settings.
 
 .. figure:: /images/test_setup_configuration.png
      :width: 780px
@@ -192,19 +195,29 @@ Settings
 
      Test Setup Configuration
 
-Tool Platform:
+Tool Platform
+^^^^^^^^^^^^^
 
-* Tool Platform IP Address: Ethernet IP Address of the QuickTrack Test Tool platform.
-* Tool Platform Port: Port number on which ControlAppC service is running on QuickTrack Test Tool platform.
-* Control Interface Port: It can usually be left at default.
-* Platform Wireless IP Address: Wireless IP Address of the QuickTrack Test Tool platform.
+You can adjust the Tool Platform settings by providing the following information:
 
-DUT:
+* **Tool Platform IP Address**: Ethernet IP address of the QuickTrack Test Tool platform.
+* **Tool Platform Port**: Port number on which the ControlAppC service is running on the
+QuickTrack Test Tool platform.
+* **Control Interface Port**: It is usually left at its default setting.
+* **Platform Wireless IP Address**: Wireless IP Address of the QuickTrack Test Tool platform.
 
-* DUT Type: It should be set to ``Station`` for STAUT and ``Access Point`` for APUT.
-* DUT Control IP Address: Ethernet IP address of the DUT (It can be either a netUSB or SLIP IP).
-* DUT Port: Port number on which ControlAppC service is running on the DUT.
-* DUT Wireless IP Address: The wireless IP Address of the DUT, which is in the same subnet as the Platform Wireless IP Address.
+Device Under Test (DUT)
+^^^^^^^^^^^^^^^^^^^^^^^
+
+You can adjust the DUT settings by providing the following information:
+
+* **DUT Type**: It must be set to ``Station`` for STAUT and ``Access Point`` for APUT.
+* **DUT Control IP Address**: Ethernet IP address of the DUT (It can be either a netUSB or SLIP IP).
+* **DUT Port**: Port number on which ControlAppC service is running on the DUT.
+* **DUT Wireless IP Address**: The wireless IP Address of the DUT, which is in the same subnet as
+the Platform Wireless IP Address.
+
+The diagram below provides an overview of the global configuration settings used by most test cases.
 
 .. figure:: /images/test_case_global_configuration.png
      :width: 780px
@@ -213,9 +226,15 @@ DUT:
 
      Test Case Global Configuration
 
-Tool mode:
+Tool mode
+^^^^^^^^^
+
+Tool mode refers to different operational settings **Development, Pre-Certification, and
+Certification**.
 
 * Refer to section 3.3.2 in the `QuickTrack Test Tool User Manual`_  for more information.
+
+The diagram below provides an overview of the DUT specific capabilities.
 
 .. figure:: /images/test_case_specific_configuration.png
      :width: 780px
@@ -223,6 +242,9 @@ Tool mode:
      :alt: Wi-Fi QuickTrack test case specific configuration
 
      Test Case Specific Configuration
+
+The diagram below provides an overview of the advanced configuration settings required for
+test execution.
 
 .. figure:: /images/advanced_configuration.png
      :width: 780px
@@ -233,10 +255,15 @@ Tool mode:
 
 
 Certification Configuration
+---------------------------
+Certification Configuration menu provides the functionalities for test execution in
+certification mode.
 
-Update Certification Bundle:
+Update Certification Bundle
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Select ``Update Certification Bundle`` to launch a file browser and upload the JSON bundle to open.
+* Select ``Update Certification Bundle`` to launch a file browser and upload the JSON bundle to
+open.
 
 .. figure:: /images/update_certification_bundle.png
      :width: 780px
@@ -245,19 +272,22 @@ Update Certification Bundle:
 
      Certification Configuration
 
-Install Private Key:
+Install Private Key
+^^^^^^^^^^^^^^^^^^^
 
 *  Refer to section 3.4 in the `QuickTrack Test Tool User Manual`_  for more information.
 
-Merge Measurement Package:
+Merge Measurement Package
+^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* If the user has multiple measurement data, this allows the user to merge them into one
-  measurement json file before uploading to the Certification System.
-
+* **Merge Measurement Package** allows you to merge multiple measurement data into one measurement
+JSON file before uploading it to the **Certification System**.
 
 Test cases
+----------
 
-* Select ``Load Application Profile`` to upload an application profile which includes all the required test cases.
+* Select ``Load Application Profile`` to upload an application profile that includes all the
+  required test cases.
 
 .. figure:: /images/test_cases_menu.png
      :width: 780px
@@ -267,33 +297,36 @@ Test cases
      Test Cases
 
 Pre-requisites before starting test execution
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* DUT: Load the pre-compiled .hex file on DUT.
+Before you start the test execution, ensure that the following prerequisites are met:
+
+* DUT: Load the pre-compiled :ref:`.hex` file onto the DUT.
 
 .. figure:: /images/sample_output_dut.png
      :width: 780px
      :align: center
      :alt: sample output DUT
 
-     sample output after loading netUSB related .hex file on DUT
+     Sample output after loading netUSB related :ref:`.hex` file onto the DUT
 
 * OpenWRT AP: Start the ControlAppC service on OpenWRT AP.
 
-Command to start the ControlAppC service on OpenWRT AP:
+  To start the ControlAppC service on the OpenWRT AP, use the following command:
 
- .. code-block:: console
+  .. code-block:: console
 
-      /usr/sbin/run.sh platform
+     /usr/sbin/run.sh platform
 
 .. figure:: /images/sample_output_openwrt_ap.png
      :width: 780px
      :align: center
      :alt: sample output openWRT AP
 
-     sample output on openWRT AP
+     Sample output on openWRT AP
 
-* Check the Test connection in the ``Test Setup Configuration`` tab.
-  If everything is proper, a green colour checkmark will be displayed.
+* Test connection: In the **Test Setup Configuration** tab, verify the test connection.
+   If everything is correct, a green checkmark will appear.
 
 .. figure:: /images/test_connection.png
      :width: 780px
@@ -302,21 +335,24 @@ Command to start the ControlAppC service on OpenWRT AP:
 
      Test Connection
 
-Tests Execution
+Tests execution
+^^^^^^^^^^^^^^^
 
-* Select the required test cases from the test case list and click on Run button.
+Execute the tests by selecting the required test cases from the test case list and click on the
+:guilabel:`Run` button.
 
 .. figure:: /images/running_tests.png
      :width: 780px
      :align: center
-     :alt: Running test cases
+     :alt: Wi-Fi QuickTrack test cases
 
-     console output while running tests
+     Test cases
 
 Test Logs
+^^^^^^^^^
 
-* At the end of every test execution, Test Logs and Cloud Reports will be stored in the path specified in
-  the ``Test configuration`` tab.
+At the end of each test execution, test logs and cloud reports will be stored in the path
+specified in the **Test configuration** tab.
 
 Dependencies
 ************
